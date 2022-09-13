@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+   jenkins:
+     image: jenkinsci/blueocean:latest
+     ports:
+       - 8081:8081
+     volumes:
+       - /home/jenkins/jenkins_home:/var/jenkins_home
+       - /var/run/docker.sock:/var/run/docker.sock
+    
+  
+   sonar:
+     image: sonarqube:latest
+     ports:
+       - 9000:9000
+     volumes:
+       - sonarqube/data:/opt/sonarqube/data
+
+  nexus:
+     image: sonatype/nexus3:latest
+     ports:
+       - 8081:8081
+     volumes:
+       - /home/nexus/nexus-data:/sonatype-work
