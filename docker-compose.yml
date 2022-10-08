@@ -17,7 +17,7 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - sonarqube/data:/opt/sonarqube/data
+      - /home/sonarqube/data:/opt/sonarqube/data
     restart: on-failure
 
   nexus:
