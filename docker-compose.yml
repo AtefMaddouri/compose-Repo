@@ -12,7 +12,7 @@ services:
       - /home/jenkins/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     restart: on-failure
-
+    
   sonar:
     image: sonarqube:latest
     container_name: sonar
@@ -22,11 +22,13 @@ services:
       - /home/sonarqube/data:/opt/sonarqube/data
     restart: on-failure
 
+
   nexus:
     image: sonatype/nexus3:latest
     container_name: nexus
     ports:
       - 8081:8081
+      - 8082:8082
     volumes:
       - /home/nexus/nexus-data:/sonatype-work
     restart: on-failure
