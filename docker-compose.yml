@@ -9,7 +9,7 @@ services:
      - 8080:8080
      - 5000:5000
     volumes:
-      - /home/data/jenkins/jenkins_home:/var/jenkins_home
+      - /home/volume/jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     restart: on-failure
     
@@ -19,7 +19,7 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - /home/data/sonarqube/data:/opt/sonarqube/data
+      - /home/volume/sonarqube:/opt/sonarqube/data
     restart: on-failure
 
 
@@ -30,7 +30,7 @@ services:
       - 8081:8081
       - 8082:8082
     volumes:
-      - /home/data/nexus/nexus-data:/sonatype-work
+      - /home/volume/nexus:/sonatype-work
     restart: on-failure
 
   prometheus:
@@ -39,7 +39,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - /home/data/prometheus:/etc/prometheus
+      - /home/volume/prometheus:/etc/prometheus
     restart: on-failure
     
   grafana:
@@ -48,6 +48,6 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - /home/data/grafana:/var/lib/grafana
+      - /home/volume/grafana:/var/lib/grafana
     restart: on-failure
 
